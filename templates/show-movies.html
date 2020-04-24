@@ -37,7 +37,7 @@
     </nav>
 
     {% if user %}
-        <h6 style="position: absolute; padding-left: 10px;">Welcome {{user}},</h6>
+        <h6 style="position: absolute; padding-left: 10px; font-weight:bold; color:#ee6e73;">Welcome {{user}},</h6>
     {% endif %}
 
 
@@ -53,7 +53,7 @@
         <div class="input-field col s12" style="display: flex;">
               <input id="Search" type="text" name="Search" class="validate" style="margin-left: 6px; padding-left: 4px;">
               <label for="Search" style="padding-left: 10px; width: 80px;">Search</label>
-              <button style="border:none"><i class="material-icons" style="line-height: 1.7;">search</i></button>
+              <button style="border:none; background: transparent;"><i class="material-icons" style="line-height: 1.7;">search</i></button>
         </div>
             </form>
 
@@ -96,8 +96,13 @@
     </div>
 
     {% else %}
-        <h4 style="text-align:center">You have no movies to show, Start by adding One !</h4>
+        {% if error %}
+            <h4 style="text-align:center">{{error}}</h4>
+        {% else %}
+            <h4 style="text-align:center">You have no movies to show, Start by adding One !</h4>
+        {% endif %}
     {% endif %}
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>

@@ -45,4 +45,4 @@ def searchMovie(request):
     if request.method == 'POST':
         search_value = request.POST['Search']
         movies = Movie.objects.filter(user=request.user, movie_name__contains=str(search_value))
-        return render(request, 'show-movies.html', {'Movie': movies, 'user': request.user})
+        return render(request, 'show-movies.html', {'Movie': movies, 'user': request.user, 'error': 'No results matching your search :('})
