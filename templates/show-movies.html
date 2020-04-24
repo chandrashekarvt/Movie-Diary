@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://kit.fontawesome.com/5d5d17b205.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Movies</title>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper">
+            <div style="display: inline;">
+                <div style="display: inline; float: left; padding-left: 10px;">
+                    <a href="#!" class="brand-logo" style="position: relative;">
+                        <i class="material-icons" style="font-size: 40px; margin: 0px;">movie</i>
+                    </a>
+                </div>
+
+                <div style="display: inline; position: absolute; bottom: 1px;">
+                    <h4 style="font-size: 25px;">MovieDiary</h4>
+                </div>
+            </div>
+
+            <div style="display: inline; float: right; padding-right: 10px;">
+                <a href="{% url 'logout' %}" class="waves-effect waves-light btn" style="border-radius: 15px;
+                            background-color: navy;">log out</a>
+            </div>
+        </div>
+    </nav>
+
+    {% if user %}
+        <h6 style="position: absolute; padding-left: 10px;">Welcome {{user}},</h6>
+    {% endif %}
+
+
+    <div class="header">
+        <h3>Your Favourite Movies</h3>
+    </div>
+
+
+
+    <div class="row">
+            <form action="{% url 'searchMovie' %}" method="post">
+            {% csrf_token %}
+        <div class="input-field col s12" style="display: flex;">
+              <input id="Search" type="text" name="Search" class="validate" style="margin-left: 6px; padding-left: 4px;">
+              <label for="Search" style="padding-left: 10px; width: 80px;">Search</label>
+              <button style="border:none"><i class="material-icons" style="line-height: 1.7;">search</i></button>
+        </div>
+            </form>
+
+      </div>
+
+
+
+
+    <div class="addBtn" style="text-align: center;">
+        <a href="{% url 'addMovie' %}" class="btn waves-effect waves-light" type="submit" name="action">Add movie
+            <i class="material-icons right">add</i>
+        </a>
+
+    </div>
+
+    {% if Movie %}
+
+    <div class="movies_container">
+
+        {% for movie in Movie %}
+
+        <a href="{% url 'editMovie' movie.id %}"><div class="container">
+            <img src="{{movie.image_url}}" alt="movie-poster">
+            <div class="centered">
+                <div class="info">
+                    <div class="ratings">
+                        <span>{{movie.ratings}}/10</span>
+                    </div>
+                    <div class="star">
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="movie-name">
+                        <p>{{movie.movie_name}}</p>
+                    </div>
+                </div>
+            </div>
+        </div></a>
+        {% endfor %}
+
+    </div>
+
+    {% else %}
+        <h4 style="text-align:center">You have no movies to show, Start by adding One !</h4>
+    {% endif %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>

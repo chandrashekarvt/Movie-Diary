@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <title>Sign in</title>
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo" style="padding-left: 20px;">
+        <i class="material-icons">movie</i>
+        MovieDiary
+      </a>
+
+    </div>
+  </nav>
+
+  <div class="container" style="text-align: center;">
+    <h2>Add a new movie</h2>
+
+      <form method="post" action="{% url 'addMovie' %}">
+        {% csrf_token %}
+        <div class="row">
+            <div class="input-field col s12" style="display: flex;">
+            <input id="movie-name" type="text" name="movie-name" class="validate" style="margin-left: 6px;">
+            <label for="movie-name">Enter movie name</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12" style="display: flex;">
+              <input id="image-url" type="text" name="image-url" class="validate" style="margin-left: 6px;">
+              <label for="image-url">Paste image url</label>
+            </div>
+          </div>
+
+
+        <div class="row">
+          <div class="input-field col s12" style="display: flex;">
+            <input id="ratings" type="text" name="ratings" class="validate" style="margin-left: 6px;">
+            <label for="ratings">Enter the ratings</label>
+          </div>
+
+          <button class="btn waves-effect waves-light" type="submit" name="action">Add
+            <i class="material-icons right">add</i>
+          </button>
+        </form>
+
+        </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>

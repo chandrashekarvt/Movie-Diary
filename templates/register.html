@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <title>Sign in</title>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper">
+            <div style="display: inline;">
+                <div style="display: inline; float: left; padding-left: 10px;">
+                    <a href="#!" class="brand-logo" style="position: relative;">
+                        <i class="material-icons" style="font-size: 40px; margin: 0px;">movie</i>
+                    </a>
+                </div>
+
+                <div style="display: inline; position: absolute; bottom: 1px;">
+                    <h4 style="font-size: 25px;">MovieDiary</h4>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+  <div class="container" style="text-align: center;">
+    <h2>Register to MovieDiary</h2>
+
+    {% if error %}
+    <h6 style="color:red">{{error}}</h6>
+    {% endif %}
+
+      <form method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+        <div class="row">
+            <div class="input-field col s12" style="display: flex;">
+            <i class="material-icons" style="line-height: 1.7;">person</i>
+            <input id="username" type="text" name="username" class="validate" style="margin-left: 6px;">
+            <label for="username" style="padding-left: 30px;">Username</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12" style="display: flex;">
+              <i class="material-icons" style="line-height: 1.7;">https</i>
+              <input id="password" type="password" name="password1" class="validate" style="margin-left: 6px;">
+              <label for="password" style="padding-left: 30px;">Password</label>
+            </div>
+          </div>
+
+
+        <div class="row">
+          <div class="input-field col s12" style="display: flex;">
+            <i class="material-icons" style="line-height: 1.7;">https</i>
+            <input id="password-again" type="password" name="password2" class="validate" style="margin-left: 6px;">
+            <label for="password-again" style="padding-left: 30px;">Re-enter Password</label>
+          </div>
+
+          <button class="btn waves-effect waves-light" type="submit" name="action">Register
+            <i class="material-icons right">person_add</i>
+          </button>
+
+      </form>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>
