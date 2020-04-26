@@ -23,5 +23,7 @@ urlpatterns = [
     path('', index),
     path('account/', include(urls)),
     path('movies/', include(urlsOfMovies)),
+    path('accounts/', include('allauth.urls')),  # new
     path('admin/', admin.site.urls),
+
 ]

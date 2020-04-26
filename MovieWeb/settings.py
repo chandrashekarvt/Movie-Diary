@@ -34,10 +34,15 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',  # New
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'allauth',  # New
+    'allauth.account',  # New
+    'allauth.socialaccount',  # New
+    'allauth.socialaccount.providers.google',
     'Account',
     'Movies',
 ]
@@ -124,5 +129,14 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+AUTHENTICATION_BACKENDS = (  # New
+    'django.contrib.auth.backends.ModelBackend',  # New
+    'allauth.account.auth_backends.AuthenticationBackend',  # New
+)  # New
+
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = '/movies/'
 
 django_heroku.settings(locals())
