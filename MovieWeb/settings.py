@@ -24,8 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ruq^_1v+vz*t50acop6s1_kz319_fxf@ah9havt!_gd!r8gn6v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['moviediary.herokuapp.com']
 
 
 INSTALLED_APPS = [
