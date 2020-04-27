@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from .models import Movie
+from .infoRetriever import getImageUrl, getTitle, getRatings
 
 
 def showMovies(request):
@@ -12,9 +13,18 @@ def showMovies(request):
 def addMovie(request):
     if request.method == 'POST':
         movie_name = request.POST['movie-name']
-        image_url = request.POST['image-url']
-        ratings = request.POST['ratings']
-        newMovie = Movie(movie_name=movie_name, image_url=image_url, ratings=ratings, user=request.user)
+        mov = movie_name.lower()
+        movie_name = mov.replace(' ', '-')
+        ratings = getRatings(movie_name)
+        title = getTitle(movie_name)
+        image_url = 'https://image.shutterstock.com/image-vector/peace-symbol-vector-icon-600w-650324398.jpg'
+        if title is not None:
+            image_url = getImageUrl(movie_name)
+        else:
+            title = movie_name
+        # image_url = request.POST['image-url']
+        # ratings = request.POST['ratings']
+        newMovie = Movie(movie_name=title, image_url=image_url, ratings=ratings, user=request.user)
         newMovie.save()
         return redirect(showMovies)
     else:
