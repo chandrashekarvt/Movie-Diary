@@ -25,11 +25,8 @@ SECRET_KEY = 'ruq^_1v+vz*t50acop6s1_kz319_fxf@ah9havt!_gd!r8gn6v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 ALLOWED_HOSTS = []
 
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -46,6 +43,8 @@ INSTALLED_APPS = [
     'Account',
     'Movies',
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

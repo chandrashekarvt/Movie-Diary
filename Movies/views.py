@@ -17,13 +17,15 @@ def addMovie(request):
         movie_name = mov.replace(' ', '-')
         ratings = getRatings(movie_name)
         title = getTitle(movie_name)
-        image_url = 'https://image.shutterstock.com/image-vector/peace-symbol-vector-icon-600w-650324398.jpg'
-        if title is not None:
-            image_url = getImageUrl(movie_name)
-        else:
+        image_url = getImageUrl(movie_name)
+
+        if title is None:
             title = movie_name
-        # image_url = request.POST['image-url']
-        # ratings = request.POST['ratings']
+        if image_url is None:
+            image_url = 'https://cdn.browshot.com/static/images/not-found.png'
+
+        if ratings is None:
+            ratings = 'N/A'
         newMovie = Movie(movie_name=title, image_url=image_url, ratings=ratings, user=request.user)
         newMovie.save()
         return redirect(showMovies)
