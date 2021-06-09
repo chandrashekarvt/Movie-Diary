@@ -14,3 +14,5 @@ Steps to install:<br />
 
 Demo Video: 
 https://user-images.githubusercontent.com/57014454/121311138-c15af700-c921-11eb-9ec2-0a911955a3fc.mp4
+
+![GitHub video](https://user-images.githubusercontent.com/57014454/121322163-5e229200-c92c-11eb-9f7d-3d68b1e6e132.gif)
