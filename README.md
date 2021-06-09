@@ -6,9 +6,9 @@ Live Demo: http://moviediary.herokuapp.com
 Technologies Used: Django, HTML, CSS.
 
 Steps to install:<br />
-1. Download the zip file or run git clone https://github.com/chandrashekarvt/Movie-Search-Engine.git <br />
-2. Create a virtual environment and run:  pip install requirements.txt<br />
-3. After the requirements are installed run : python3 manage.py runserver<br />
+1. Download the zip file or run ```git clone https://github.com/chandrashekarvt/Movie-Search-Engine.git ```<br />
+2. Create a virtual environment and run ``` pip install requirements.txt```<br />
+3. After the requirements are installed run ```python3 manage.py runserver```<br />
 
 <img width="1440" alt="Screenshot 2021-06-09 at 12 37 02 PM" src="https://user-images.githubusercontent.com/57014454/121309591-fc5c2b00-c91f-11eb-9cf1-376f4f6631d8.png">
 
