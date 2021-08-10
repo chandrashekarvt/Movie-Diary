@@ -1,4 +1,4 @@
-# Movie-Search-Engine
+# Movie Diary
 
 - Used the fundamentals of web scraping and developed a python script to fetch the relevant details of a required movie like ratings, poster and year of release from multiple sources and display in the front-end with an animation to create a personal collection of favourite movies.
 - Showcase your favourite movies in a virtual Movie Diary!
